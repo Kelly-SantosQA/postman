@@ -24,4 +24,4 @@ jobs:
 
     - name: Run API tests with Newman
       run: |
-        newman run postman/minha-collection.json -e tests/ambiente.postman_environment.json --reporters cli
+        newman run postman/cee-collection.json -e testes/variaveis.postman_environment.json --reporters cli
