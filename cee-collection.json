@@ -1,0 +1,1122 @@
+{
+	"info": {
+		"_postman_id": "f682717e-bcf7-45b9-adfb-16e54eb755f2",
+		"name": "CEE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44062143",
+		"_collection_link": "https://golden-7156.postman.co/workspace/golden-Workspace~836cd9d4-8c32-4d80-8762-cf00592976e4/collection/44062143-f682717e-bcf7-45b9-adfb-16e54eb755f2?action=share&source=collection_link&creator=44062143"
+	},
+	"item": [
+		{
+			"name": "Sponsor-Mantenedoura",
+			"item": [
+				{
+					"name": "Criar Mantenedoura",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomNum\", _.random(1000,9999));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"general_info\": {\r\n        \"company_name\": \"Empresa Kelly Ltda\",\r\n        \"cnpj\": \"97082688000138\",\r\n        \"trade_name\": \"Empresa Exemplo\",\r\n        \"phone\": \"85999999999\",\r\n        \"email\": \"contato@empresaexemplo.com.br\",\r\n        \"address\": {\r\n            \"full_address\": \"Rua Exemplo, 123\",\r\n            \"complement\": \"Sala 456\",\r\n            \"zip_code\": \"60000000\",\r\n            \"city\": \"Fortaleza\",\r\n            \"neighborhood\": \"Centro\",\r\n            \"location\": \"CE\"\r\n        },\r\n        \"principal_economic_activity\": {\r\n            \"code\": \"1234-5/67\",\r\n            \"description\": \"Comércio varejista de produtos diversos\"\r\n        },\r\n        \"secondary_economic_activities\": [\r\n            {\r\n                \"code\": \"7890-1/23\",\r\n                \"description\": \"Consultoria em gestão empresarial\"\r\n            }\r\n        ],\r\n        \"legal_nature\": {\r\n            \"code\": \"206-2\",\r\n            \"description\": \"Sociedade Empresária Limitada\"\r\n        }\r\n    },\r\n    \"legal_representative\": [\r\n        {\r\n            \"start_date\": \"2025-04-19T15:17:00-03:00\",\r\n            \"person\": {\r\n                \"cpf\": \"12345678900\",\r\n                \"full_name\": \"João da Silva\",\r\n                \"phone\": \"85988888888\",\r\n                \"email\": \"joao.silva@email.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"partners\": [\r\n        {\r\n            \"start_date\": \"2025-04-19T15:17:00-03:00\",\r\n            \"percentage_partner\": 60.0,\r\n            \"person\": {\r\n                \"cpf\": \"98765432100\",\r\n                \"full_name\": \"Maria Souza\",\r\n                \"phone\": \"85977777777\",\r\n                \"email\": \"maria.souza@email.com\"\r\n            }\r\n        },\r\n        {\r\n            \"start_date\": \"2025-04-19T15:17:00-03:00\",\r\n            \"percentage_partner\": 40.0,\r\n            \"person\": {\r\n                \"cpf\": \"11122233344\",\r\n                \"full_name\": \"Carlos Alberto\",\r\n                \"phone\": \"85966666666\",\r\n                \"email\": \"carlos.alberto@email.com\"\r\n            }\r\n        }   \r\n    ],\r\n    \"social_contracts\": [\r\n        {\r\n            \"number\": \"010101212023\",\r\n            \"date\": \"2025-04-19T15:17:00-03:00\",\r\n            \"document_type\": \"Contrato social\",\r\n            \"document_id\": \"documento_test_1.pdf\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlCee}}sponsor/",
+							"host": [
+								"{{urlCee}}sponsor"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"company_name\": \"{{$randomCompanyName}}\",\r\n  \"cnpj\": \"1234567800{{randomNum}}\",\r\n  \"trade_name\": \"{{$randomCompanySuffix}}\",\r\n  \"phone\": \"{{$randomPhoneNumber}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"status\": \"active\",\r\n  \"address\": {\r\n    \"full_address\": \"{{$randomStreetAddress}}\",\r\n    \"complement\": \"\",\r\n    \"zip_code\": \"01234567\",\r\n    \"city\": \"{{$randomCity}}\",\r\n    \"neighborhood\": \"Siqueira\",\r\n    \"location\": \"{{$randomLocale}}\"\r\n  },\r\n  \"principal_economic_activity\": {\r\n    \"code\": \"01\",\r\n    \"description\": \"{{$randomWords}}\"\r\n  },\r\n  \"secondary_economic_activities\": [\r\n    {\r\n      \"code\": \"02\",\r\n      \"description\": \"{{$randomWords}}\"\r\n    },\r\n    {\r\n      \"code\": \"04\",\r\n      \"description\": \"{{$randomWords}}\"\r\n    }\r\n  ],\r\n  \"legal_nature\": {\r\n    \"code\": \"01\",\r\n    \"description\": \"Sociedade Empresária Limitada\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localUrl}}sponsor/general-info",
+									"host": [
+										"{{localUrl}}sponsor"
+									],
+									"path": [
+										"general-info"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Apr 2025 12:16:07 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "900"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sponsor_id\": \"c6389294-ae9c-4968-8b12-4f9f6f042c35\",\n    \"company_name\": \"Connelly - Rath\",\n    \"cnpj\": \"12345678003401\",\n    \"trade_name\": \"LLC\",\n    \"phone\": \"400-666-5459\",\n    \"email\": \"Vicente_Goldner@hotmail.com\",\n    \"status\": \"active\",\n    \"address\": {\n        \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\n        \"full_address\": \"86761 Schowalter Shore\",\n        \"complement\": \"\",\n        \"zip_code\": \"01234567\",\n        \"city\": \"Steubermouth\",\n        \"neighborhood\": \"Siqueira\",\n        \"location\": \"km\"\n    },\n    \"principal_economic_activity\": {\n        \"id\": \"654b1fa9-27a9-4d9c-83ef-e6a1c3294adb\",\n        \"code\": \"01\",\n        \"description\": \"FTP Wisconsin Operations encryption Avon\"\n    },\n    \"secondary_economic_activities\": [\n        {\n            \"id\": \"2951da08-09ba-45a4-a46b-ee4b97780b7f\",\n            \"code\": \"02\",\n            \"description\": \"Stravenue alarm\"\n        },\n        {\n            \"id\": \"f6ef34a3-8949-489c-9926-6b49a912678c\",\n            \"code\": \"04\",\n            \"description\": \"yellow multi-state Bike Chips\"\n        }\n    ],\n    \"legal_nature\": {\n        \"id\": \"698d32f7-0a2f-440d-8660-e2b0da760ea1\",\n        \"code\": \"01\",\n        \"description\": \"Sociedade Empresária Limitada\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar Mantenedoura",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}sponsor",
+							"host": [
+								"{{urlCee}}sponsor"
+							],
+							"query": [
+								{
+									"key": "filter_text",
+									"value": "12345678000190",
+									"disabled": true
+								},
+								{
+									"key": "filter_field",
+									"value": "cnpj",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "page_size",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "field",
+									"value": "trade_name",
+									"disabled": true
+								},
+								{
+									"key": "direction",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localUrl}}sponsor/general-info?filter_text=12345678000191&page_size=5&field=trade_name",
+									"host": [
+										"{{localUrl}}sponsor"
+									],
+									"path": [
+										"general-info"
+									],
+									"query": [
+										{
+											"key": "filter_text",
+											"value": "12345678000191"
+										},
+										{
+											"key": "filter_field",
+											"value": "cnpj",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "page_size",
+											"value": "5"
+										},
+										{
+											"key": "field",
+											"value": "trade_name"
+										},
+										{
+											"key": "direction",
+											"value": "desc",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Apr 2025 13:40:48 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "478"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"page_size\": 5,\n    \"total\": 3,\n    \"total_pages\": 1,\n    \"data\": [\n        {\n            \"id\": \"357ab9b6-5af7-45e6-949d-111a32f1332a\",\n            \"company_name\": \"Rowe Group\",\n            \"cnpj\": \"12345678000191\",\n            \"trade_name\": \"Group\",\n            \"status\": \"active\"\n        },\n        {\n            \"id\": \"aa69084b-7144-4c9d-9c1e-946770640c42\",\n            \"company_name\": \"Roberts - Rosenbaum\",\n            \"cnpj\": \"12345678000191\",\n            \"trade_name\": \"Inc\",\n            \"status\": \"active\"\n        },\n        {\n            \"id\": \"c6389294-ae9c-4968-8b12-4f9f6f042c35\",\n            \"company_name\": \"Lubowitz LLC\",\n            \"cnpj\": \"12345678003401\",\n            \"trade_name\": \"Inc\",\n            \"status\": \"active\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}sponsor/e288c459-eb2a-4405-9d48-84137b8c0881",
+							"host": [
+								"{{urlCee}}sponsor"
+							],
+							"path": [
+								"e288c459-eb2a-4405-9d48-84137b8c0881"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localUrl}}sponsor/general-info/c6389294-ae9c-4968-8b12-4f9f6f042c35",
+									"host": [
+										"{{localUrl}}sponsor"
+									],
+									"path": [
+										"general-info",
+										"c6389294-ae9c-4968-8b12-4f9f6f042c35"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Apr 2025 12:40:18 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "900"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sponsor_id\": \"c6389294-ae9c-4968-8b12-4f9f6f042c35\",\n    \"company_name\": \"Connelly - Rath\",\n    \"cnpj\": \"12345678003401\",\n    \"trade_name\": \"LLC\",\n    \"phone\": \"400-666-5459\",\n    \"email\": \"Vicente_Goldner@hotmail.com\",\n    \"status\": \"active\",\n    \"address\": {\n        \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\n        \"full_address\": \"86761 Schowalter Shore\",\n        \"complement\": \"\",\n        \"zip_code\": \"01234567\",\n        \"city\": \"Steubermouth\",\n        \"neighborhood\": \"Siqueira\",\n        \"location\": \"km\"\n    },\n    \"principal_economic_activity\": {\n        \"id\": \"654b1fa9-27a9-4d9c-83ef-e6a1c3294adb\",\n        \"code\": \"01\",\n        \"description\": \"FTP Wisconsin Operations encryption Avon\"\n    },\n    \"secondary_economic_activities\": [\n        {\n            \"id\": \"2951da08-09ba-45a4-a46b-ee4b97780b7f\",\n            \"code\": \"02\",\n            \"description\": \"Stravenue alarm\"\n        },\n        {\n            \"id\": \"f6ef34a3-8949-489c-9926-6b49a912678c\",\n            \"code\": \"04\",\n            \"description\": \"yellow multi-state Bike Chips\"\n        }\n    ],\n    \"legal_nature\": {\n        \"id\": \"698d32f7-0a2f-440d-8660-e2b0da760ea1\",\n        \"code\": \"01\",\n        \"description\": \"Sociedade Empresária Limitada\"\n    }\n}"
+						},
+						{
+							"name": "GetBySponsorId",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localUrl}}sponsor/c8cb2325-26d9-4605-bd01-6829efbf11ca",
+									"host": [
+										"{{localUrl}}sponsor"
+									],
+									"path": [
+										"c8cb2325-26d9-4605-bd01-6829efbf11ca"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 20 Apr 2025 16:47:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1921"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"c8cb2325-26d9-4605-bd01-6829efbf11ca\",\n    \"generalInfo\": {\n        \"id\": \"f8f9d9b7-b9d3-4532-ba68-83172b620870\",\n        \"company_name\": \"Empresa Exemplo Ltda\",\n        \"cnpj\": \"12345678000190\",\n        \"trade_name\": \"Empresa Exemplo\",\n        \"phone\": \"85999999999\",\n        \"email\": \"contato@empresaexemplo.com.br\",\n        \"status\": \"\",\n        \"address\": {\n            \"id\": \"a78d1c11-0a51-4d63-b58d-fec86b7c302b\",\n            \"full_address\": \"Rua Exemplo, 123\",\n            \"complement\": \"Sala 456\",\n            \"zip_code\": \"60000000\",\n            \"city\": \"Fortaleza\",\n            \"neighborhood\": \"Centro\",\n            \"location\": \"CE\"\n        },\n        \"principal_economic_activity\": {\n            \"id\": \"1900cd9a-004a-477a-9a88-02ddf831cb64\",\n            \"code\": \"1234-5/67\",\n            \"description\": \"Comércio varejista de produtos diversos\"\n        },\n        \"secondary_economic_activities\": [\n            {\n                \"id\": \"02352747-359c-49e9-8ba2-a97e4b6aad91\",\n                \"code\": \"7890-1/23\",\n                \"description\": \"Consultoria em gestão empresarial\"\n            }\n        ],\n        \"legal_nature\": {\n            \"id\": \"16ae6843-e5b2-411e-bae7-50fff6e3a8f4\",\n            \"code\": \"206-2\",\n            \"description\": \"Sociedade Empresária Limitada\"\n        }\n    },\n    \"legal_representative\": [\n        {\n            \"id\": \"037a85db-889b-46c8-97fd-c164f7834900\",\n            \"start_date\": \"2025-04-19T15:17:00-03:00\",\n            \"end_date\": null,\n            \"person\": {\n                \"id\": \"e0dd69a1-427c-465c-9cdb-24152c9bf9ed\",\n                \"cpf\": \"12345678900\",\n                \"full_name\": \"João da Silva\",\n                \"phone\": \"85988888888\",\n                \"email\": \"joao.silva@email.com\"\n            }\n        }\n    ],\n    \"partners\": [\n        {\n            \"id\": \"638364d5-026d-436a-b54e-11502cf70d66\",\n            \"start_date\": \"2025-04-19T15:17:00-03:00\",\n            \"percentage_partner\": 60,\n            \"end_date\": null,\n            \"person\": {\n                \"id\": \"c9656d10-cbcd-4d5f-8252-0a3d7d0e9acc\",\n                \"cpf\": \"98765432100\",\n                \"full_name\": \"Maria Souza\",\n                \"phone\": \"85977777777\",\n                \"email\": \"maria.souza@email.com\"\n            }\n        },\n        {\n            \"id\": \"611d3a25-70b8-41fb-bd70-abd51fc9bf1f\",\n            \"start_date\": \"2025-04-19T15:17:00-03:00\",\n            \"percentage_partner\": 40,\n            \"end_date\": null,\n            \"person\": {\n                \"id\": \"d0053363-b6d2-41dc-8b8b-17f897a3f5ec\",\n                \"cpf\": \"11122233344\",\n                \"full_name\": \"Carlos Alberto\",\n                \"phone\": \"85966666666\",\n                \"email\": \"carlos.alberto@email.com\"\n            }\n        }\n    ],\n    \"social_contracts\": [\n        {\n            \"id\": \"f681f65e-60c4-408c-94f4-c46abebcab51\",\n            \"number\": \"010101212023\",\n            \"date\": \"2025-04-19T15:17:00-03:00\",\n            \"document_type\": \"Contrato social\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar mantenedoura",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"e288c459-eb2a-4405-9d48-84137b8c0881\",\r\n    \"general_info\": {\r\n        \"company_name\": \"Kelly ltda atualizado\",\r\n        \"cnpj\": \"16225975000158\",\r\n        \"trade_name\": \"{{$randomCompanyName}}\",\r\n        \"phone\": \"11912345671\",\r\n        \"email\": \"contat1o@exemplo.com\",\r\n        \"address\": {\r\n            \"full_address\": \"Rua das Acácias, 1234\",\r\n            \"complement\": \"Sala 51\",\r\n            \"zip_code\": \"01234561\",\r\n            \"city\": \"São São\",\r\n            \"neighborhood\": \"Centro\",\r\n            \"location\": \"SP\"\r\n        },\r\n        \"principal_economic_activity\": {\r\n            \"code\": \"62.01-5-01\",\r\n            \"description\": \"Desenvolvimento de programas de computador sob encomenda\"\r\n        },\r\n        \"secondary_economic_activities\": [\r\n            {\r\n                \"code\": \"62.02-3-01\",\r\n                \"description\": \"Desenvolvimento e licenciamento de programas de computador customizáveis 1\"\r\n            }\r\n        ],\r\n        \"legal_nature\": {\r\n            \"code\": \"206-2\",\r\n            \"description\": \"Sociedade Empresária Limitada\"\r\n        }\r\n    },\r\n    \"legal_representative\": [\r\n        {\r\n            \"start_date\": \"2023-01-01T00:00:00Z\",\r\n            \"end_date\": \"2023-01-01T00:00:00Z\",\r\n            \"person\": {\r\n                \"cpf\": \"12345678909\",\r\n                \"full_name\": \"João da Silva\",\r\n                \"phone\": \"11998765432\",\r\n                \"email\": \"joaoq.silva@exemplo.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"partners\": [\r\n        {\r\n            \"start_date\": \"2022-06-01T00:00:00Z\",\r\n            \"percentage_partner\": 49.0,\r\n            \"end_date\": null,\r\n            \"person\": {\r\n                \"cpf\": \"98765432101\",\r\n                \"full_name\": \"Maria Oliveira\",\r\n                \"phone\": \"11977771234\",\r\n                \"email\": \"maria.oliveira@exemplo.com\"\r\n            }\r\n        },\r\n        {\r\n            \"start_date\": \"2022-06-01T00:00:00Z\",\r\n            \"percentage_partner\": 51.0,\r\n            \"end_date\": null,\r\n            \"person\": {\r\n                \"cpf\": \"98765432101\",\r\n                \"full_name\": \"Maria OliveiraCCCCC\",\r\n                \"phone\": \"11977771233\",\r\n                \"email\": \"maria.oliveiraC@exemplo.com\"\r\n            }\r\n        }\r\n    ],\r\n    \"social_contracts\": [\r\n        {\r\n            \"number\": \"123456\",\r\n            \"date\": \"2024-05-15T00:00:00Z\",\r\n            \"document_type\": \"Contrato social\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlCee}}sponsor",
+							"host": [
+								"{{urlCee}}sponsor"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"sponsor_id\": \"c6389294-ae9c-4968-8b12-4f9f6f042c35\",\r\n  \"company_name\": \"{{$randomCompanyName}}\",\r\n  \"cnpj\": \"1234567800{{randomNum}}\",\r\n  \"trade_name\": \"{{$randomCompanySuffix}}\",\r\n  \"phone\": \"{{$randomPhoneNumber}}\",\r\n  \"email\": \"{{$randomEmail}}\",\r\n  \"status\": \"active\",\r\n  \"address\": {\r\n    \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\r\n    \"full_address\": \"{{$randomStreetAddress}}\",\r\n    \"complement\": \"\",\r\n    \"zip_code\": \"01234567\",\r\n    \"city\": \"{{$randomCity}}\",\r\n    \"neighborhood\": \"Siqueira\",\r\n    \"location\": \"{{$randomLocale}}\"\r\n  },\r\n  \"principal_economic_activity\": {\r\n    \"id\": \"654b1fa9-27a9-4d9c-83ef-e6a1c3294adb\",\r\n    \"code\": \"01\",\r\n    \"description\": \"{{$randomWords}}\"\r\n  },\r\n  \"secondary_economic_activities\": [\r\n    {\r\n        \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\r\n      \"code\": \"02\",\r\n      \"description\": \"{{$randomWords}}\"\r\n    },\r\n    {\r\n        \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\r\n      \"code\": \"04\",\r\n      \"description\": \"{{$randomWords}}\"\r\n    }\r\n  ],\r\n  \"legal_nature\": {\r\n    \"id\": \"698d32f7-0a2f-440d-8660-e2b0da760ea1\",\r\n    \"code\": \"01\",\r\n    \"description\": \"Sociedade Empresária Limitada\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localUrl}}sponsor/general-info",
+									"host": [
+										"{{localUrl}}sponsor"
+									],
+									"path": [
+										"general-info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Apr 2025 12:46:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "898"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sponsor_id\": \"c6389294-ae9c-4968-8b12-4f9f6f042c35\",\n    \"company_name\": \"Lubowitz LLC\",\n    \"cnpj\": \"12345678003401\",\n    \"trade_name\": \"Inc\",\n    \"phone\": \"718-257-5069\",\n    \"email\": \"Adam.Schmeler31@gmail.com\",\n    \"status\": \"active\",\n    \"address\": {\n        \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\n        \"full_address\": \"50441 Vicente Road\",\n        \"complement\": \"\",\n        \"zip_code\": \"01234567\",\n        \"city\": \"Palm Springs\",\n        \"neighborhood\": \"Siqueira\",\n        \"location\": \"ceb\"\n    },\n    \"principal_economic_activity\": {\n        \"id\": \"654b1fa9-27a9-4d9c-83ef-e6a1c3294adb\",\n        \"code\": \"01\",\n        \"description\": \"Buckinghamshire Investment Dynamic\"\n    },\n    \"secondary_economic_activities\": [\n        {\n            \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\n            \"code\": \"02\",\n            \"description\": \"CSS Assimilated\"\n        },\n        {\n            \"id\": \"28e3c479-7f83-46ba-9718-3c576906294c\",\n            \"code\": \"04\",\n            \"description\": \"alarm Concrete Generic Virginia Practical\"\n        }\n    ],\n    \"legal_nature\": {\n        \"id\": \"698d32f7-0a2f-440d-8660-e2b0da760ea1\",\n        \"code\": \"01\",\n        \"description\": \"Sociedade Empresária Limitada\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar mantenedoura",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}sponsor/e288c459-eb2a-4405-9d48-84137b8c0881",
+							"host": [
+								"{{urlCee}}sponsor"
+							],
+							"path": [
+								"e288c459-eb2a-4405-9d48-84137b8c0881"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Contrato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/thamires.kelly/Downloads/acompanhamento-dos-servicos_20250506210420.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlCee}}/sponsor/social-contract/{{idContrato}}/upload-document",
+							"host": [
+								"{{urlCee}}"
+							],
+							"path": [
+								"sponsor",
+								"social-contract",
+								"{{idContrato}}",
+								"upload-document"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticar",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"14204932053\",\r\n  \"password\": \"Abcd1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlCee}}auth",
+							"host": [
+								"{{urlCee}}auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OTP Validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Resposta contém access_token\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"token\");\r",
+									"\r",
+									"    // Armazena o token no ambiente para os próximos testes\r",
+									"    pm.environment.set(\"cee_token\", jsonData.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"14204932053\",\r\n  \"otp_code\": \"321449\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlCee}}auth/validate",
+							"host": [
+								"{{urlCee}}auth"
+							],
+							"path": [
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mailpit",
+			"item": [
+				{
+					"name": "Get All Emails",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"console.log(body.messages[0])\r",
+									"if (body.length === 0) {\r",
+									"    console.log(\"Nenhum e-mail encontrado\");\r",
+									"} else {\r",
+									"    const lastEmail = body.messages[0];\r",
+									"    pm.environment.set(\"last_email_id\", lastEmail[\"ID\"]);\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}api/v1/messages",
+							"host": [
+								"{{urlCee}}api"
+							],
+							"path": [
+								"v1",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get email by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const email = pm.response.json();\r",
+									"const textBody = email.Text; // ou email.HTML se for HTML\r",
+									"\r",
+									"// Regex para código OTP de 6 dígitos\r",
+									"const match = textBody.match(/\\b\\d{6}\\b/);\r",
+									"\r",
+									"if (match) {\r",
+									"    pm.environment.set(\"otp_code\", match[0]);\r",
+									"} else {\r",
+									"    console.log(\"Código OTP não encontrado.\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}api/v1/message/{{last_email_id}}",
+							"host": [
+								"{{urlCee}}api"
+							],
+							"path": [
+								"v1",
+								"message",
+								"{{last_email_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Listar users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}user?field=trade_id&page=4",
+							"host": [
+								"{{urlCee}}user"
+							],
+							"query": [
+								{
+									"key": "field",
+									"value": "trade_id"
+								},
+								{
+									"key": "page",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Resposta é JSON válida\", function () {\r",
+									"    pm.response.to.have.jsonBody();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Corpo da resposta tem dados esperados\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});\r",
+									"pm.test(\"Resposta contém campo 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property(\"id\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"alternative_email\": \"teste@teste.com\",\r\n  \"birth_date\": \"2006-01-02T15:04:05Z\",\r\n  \"city\": \"fortaleza\",\r\n  \"complement\": \"teste\",\r\n  \"document\": \"65219624008\",\r\n  //\"document_id\": \"652\",\r\n  \"email\": \"kelly.santos+testeapi@goldencloud.tech\",\r\n  \"first_name\": \"Kelly\",\r\n  \"full_name\": \"Kelly teste api\",\r\n  //\"id\": \"string\",\r\n  \"institution\": \"teste API\",\r\n  \"last_name\": \"POSTMAN\",\r\n  \"password\": \"Senha123!\",\r\n  \"confirm_password\": \"Senha123!\",\r\n  \"phone\": \"85888888888\",\r\n  //\"protocol_id\": \"string\",\r\n  \"role_id\": \"509c6a50-e325-4ee7-8c8b-ae1bd27df740\",\r\n  \"situation\": \"approved\",\r\n  \"street\": \"rua abc\",\r\n  \"type_request\": \"access\",\r\n  \"zip_code\": \"60000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlCee}}user",
+							"host": [
+								"{{urlCee}}user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}user/{{idUser}}",
+							"host": [
+								"{{urlCee}}user"
+							],
+							"path": [
+								"{{idUser}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Permissoes-roles",
+			"item": [
+				{
+					"name": "Criar permissao",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Resposta é JSON válida\", function () {\r",
+									"    pm.response.to.have.jsonBody();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Corpo da resposta tem dados esperados\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});\r",
+									"pm.test(\"Resposta contém campo 'id'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.have.property(\"name\");\r",
+									"});\r",
+									"pm.environment.set(\"nome_permissao\", pm.response.json().name);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Teste API\",\r\n  \"permissions\": [\r\n    {\r\n      \"action\": \"GET\",\r\n      \"resource\": \"institution\"\r\n    },\r\n         {\r\n                    \"resource\": \"role\",\r\n                    \"action\": \"GET\"\r\n                },\r\n                {\r\n                    \"resource\": \"request\",\r\n                    \"action\": \"GET\"\r\n                },\r\n                {\r\n                    \"resource\": \"request\",\r\n                    \"action\": \"POST\"\r\n                },\r\n                {\r\n                    \"resource\": \"request\",\r\n                    \"action\": \"PATCH\"\r\n                },\r\n                {\r\n                    \"resource\": \"request\",\r\n                    \"action\": \"DELETE\"\r\n                },\r\n                {\r\n                    \"resource\": \"user\",\r\n                    \"action\": \"GET\"\r\n                },\r\n                {\r\n                    \"resource\": \"user\",\r\n                    \"action\": \"PATCH\"\r\n                }\r\n\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlCee}}role",
+							"host": [
+								"{{urlCee}}role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Permissao",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Resposta é JSON válida\", function () {\r",
+									"    pm.response.to.have.jsonBody();\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Corpo da resposta tem dados esperados\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an(\"object\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}role",
+							"host": [
+								"{{urlCee}}role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por nome",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200 ou 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});\r",
+									"pm.environment.set(\"idpermissao\", pm.response.json().id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}role/{{nome_permissao}}",
+							"host": [
+								"{{urlCee}}role"
+							],
+							"path": [
+								"{{nome_permissao}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar permissao",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200 ou 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlCee}}role/{{idpermissao}}",
+							"host": [
+								"{{urlCee}}role"
+							],
+							"path": [
+								"{{idpermissao}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instituicoes",
+			"item": [
+				{
+					"name": "Listar todas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}institution",
+							"host": [
+								"{{urlCee}}institution"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar info geral por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}institution/general-info/f6d8e4a4-c8fc-40bc-b3a7-f1c15ff8c4a5",
+							"host": [
+								"{{urlCee}}institution"
+							],
+							"path": [
+								"general-info",
+								"f6d8e4a4-c8fc-40bc-b3a7-f1c15ff8c4a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar nivel educacao por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}institution/education-levels/f6d8e4a4-c8fc-40bc-b3a7-f1c15ff8c4a5",
+							"host": [
+								"{{urlCee}}institution"
+							],
+							"path": [
+								"education-levels",
+								"f6d8e4a4-c8fc-40bc-b3a7-f1c15ff8c4a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar se possui nivel educacao por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{cee_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlCee}}institution/f6d8e4a4-c8fc-40bc-b3a7-f1c15ff8c4a5/has-education-level",
+							"host": [
+								"{{urlCee}}institution"
+							],
+							"path": [
+								"f6d8e4a4-c8fc-40bc-b3a7-f1c15ff8c4a5",
+								"has-education-level"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "randomNum",
+			"value": ""
+		}
+	]
+}
